@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 13:12:55 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/19 20:33:07 by mamonzer         ###   ########.fr       */
+/*   Created: 2025/10/22 12:15:19 by mamonzer          #+#    #+#             */
+/*   Updated: 2025/10/23 14:03:51 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-//# include "libft.h"
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_list
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_node;
+	unsigned int	i;
+	char			*results;
 
-
-/*Error handling and input check utils*/
-int		ft_error(int e);
-int		is_digit(char c);
-int		is_sign(char c);
-long	ft_atoi(const char *str);
-
-
-#endif
+	if (!s || !f)
+	{
+		return (NULL);
+	}
+	results = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!results)
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (i < ft_strlen(s))
+	{
+		results[i] = (*f)(i, s[i]);
+		i++;
+	}
+	results[i] = 0;
+	return (results);
+}

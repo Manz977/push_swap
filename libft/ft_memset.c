@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 13:12:55 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/19 20:33:07 by mamonzer         ###   ########.fr       */
+/*   Created: 2025/10/12 18:09:50 by mamonzer          #+#    #+#             */
+/*   Updated: 2025/10/13 15:31:27 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
 
-//# include "libft.h"
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_list
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_node;
+	size_t			i;
+	unsigned char	*p;
 
+	p = s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = c;
+		i++;
+	}
+	return (s);
+}
 
-/*Error handling and input check utils*/
-int		ft_error(int e);
-int		is_digit(char c);
-int		is_sign(char c);
-long	ft_atoi(const char *str);
+// #include <stdio.h>
 
+// int	main(void)
+// {
+// 	char b[10];
+// 	int i;
+// 	i = 0;
+// 	ft_memset(b, 'a', sizeof(char) * 10);
 
-#endif
+// 	while (i < 10)
+// 	{
+// 		printf("%c ", b[i]);
+// 		i++;
+// 	}
+// }

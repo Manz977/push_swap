@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 13:12:55 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/19 20:33:07 by mamonzer         ###   ########.fr       */
+/*   Created: 2025/10/22 12:50:20 by mamonzer          #+#    #+#             */
+/*   Updated: 2025/10/22 12:53:05 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <unistd.h>
 
-//# include "libft.h"
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_list
+void	ft_putendl_fd(char *s, int fd)
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_node;
+	int	i;
 
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}
 
-/*Error handling and input check utils*/
-int		ft_error(int e);
-int		is_digit(char c);
-int		is_sign(char c);
-long	ft_atoi(const char *str);
+// int	main(void)
+//{
+//	char	*s;
+//	int		fd;
 
-
-#endif
+//	s = "Manar";
+//	fd = 1;
+//	ft_putendl_fd(s, fd);
+//}

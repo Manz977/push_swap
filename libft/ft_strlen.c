@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 13:12:55 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/19 20:33:07 by mamonzer         ###   ########.fr       */
+/*   Created: 2025/10/11 22:26:59 by mamonzer          #+#    #+#             */
+/*   Updated: 2025/10/14 11:03:26 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
 
-//# include "libft.h"
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_list
+size_t	ft_strlen(const char *s)
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_node;
+	size_t	i;
 
+	i = 0;
+	while (*s != '\0')
+	{
+		s++;
+		i++;
+	}
+	return (i);
+}
 
-/*Error handling and input check utils*/
-int		ft_error(int e);
-int		is_digit(char c);
-int		is_sign(char c);
-long	ft_atoi(const char *str);
+// #include <stdio.h>
 
+// int	main(void)
+// {
+// 	int i;
+// 	char c[10] = "manar";
 
-#endif
+// 	i = ft_strlen(c);
+// 	printf("%d", i);
+// }

@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 13:12:55 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/19 20:33:07 by mamonzer         ###   ########.fr       */
+/*   Created: 2025/10/11 22:08:11 by mamonzer          #+#    #+#             */
+/*   Updated: 2025/10/12 17:11:39 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-//# include "libft.h"
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_list
+int	ft_isprint(int c)
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_node;
+	return (c >= 32 && c <= 126);
+}
 
+// #include <stdio.h>
 
-/*Error handling and input check utils*/
-int		ft_error(int e);
-int		is_digit(char c);
-int		is_sign(char c);
-long	ft_atoi(const char *str);
+// int	main(void)
+// {
+// 	int i;
+// 	int c;
+// 	i = 0;
+// 	c = 22;
 
-
-#endif
+// 	i = ft_isprint(c);
+// 	printf("%d\n", i);
+// }

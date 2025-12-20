@@ -1,24 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check_utils.c                                :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 16:10:47 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/19 20:33:20 by mamonzer         ###   ########.fr       */
+/*   Created: 2025/10/16 12:36:23 by mamonzer          #+#    #+#             */
+/*   Updated: 2025/10/24 20:58:47 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
-
-
-int	ft_error(int e)
-{
-	if (e == 1)
-		write(2, "Error\n", 6);
-	exit (1);
-}
 
 int	ft_space(int s)
 {
@@ -27,7 +17,7 @@ int	ft_space(int s)
 	return (0);
 }
 
-long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	j;
@@ -51,32 +41,16 @@ long	ft_atoi(const char *str)
 	}
 	return (j * np);
 }
-/*nbrstr compare if the numbers are duplicate*/
 
-int	nbr_cmp(const char *s1, const char *s2)
-{
-	int	i;
-	int	j;
+//#include <stdio.h>
 
-	i = 0;
-	j = i;
+// int	main(void)
+//{
+//	char	str[] = "   ---+--+1234ab567";
+//	int		result;
 
-	if (s1[i] == '+')
-	{
-		if (s2[j] != '+')
-			i++;
-	}
-	else
-	{
-		if (s2[j] == '+')
-			j++;
-	}
-	while (s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
-	{
-		i++;
-		j++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
-}
-
-
+//	result = ft_atoi(str);
+//	printf("Input: \"%s\"\n", str);
+//	printf("ft_atoi result: %d\n", result);
+//	return (0);
+//}
