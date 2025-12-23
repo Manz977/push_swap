@@ -32,7 +32,7 @@ typedef struct s_list
 int		ft_error(int e);
 int		is_digit(char c);
 int		is_sign(char c);
-long	ft_atoi(const char *str);
+long	ft_atoi(char *str);
 int		nbr_cmp(const char *s1, const char *s2);
 int		arg_is_number(char *argv);
 int		arg_is_duplicate(char **argv);

@@ -17,7 +17,9 @@ int	main(int argc, char **argv)
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (ft_error(1));
-	if (is_correct_input(argv) == 0)
+	
+	return ;
+	if ((is_correct_input(argv)) == 0)
 		return (ft_error(1));
 
 }

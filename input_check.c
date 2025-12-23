@@ -54,7 +54,7 @@ int	arg_is_duplicate(char **argv)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 
 	while (argv[i])
 	{
@@ -87,12 +87,13 @@ int	is_correct_input(char **av)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 
 	while (av[i])
 	{
 		if (!arg_is_number(av[i]))
 			return (0);
+			i++;
 	}
 	if (arg_is_duplicate(av))
 		return (0);
