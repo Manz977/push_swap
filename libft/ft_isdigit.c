@@ -6,11 +6,11 @@
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 19:25:41 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/10/12 17:07:35 by mamonzer         ###   ########.fr       */
+/*   Updated: 2025/12/23 15:50:31 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+int	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }

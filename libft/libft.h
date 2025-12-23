@@ -6,7 +6,7 @@
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:56:35 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/16 15:18:10 by mamonzer         ###   ########.fr       */
+/*   Updated: 2025/12/23 15:50:44 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /*==========CHARS=========*/
 int		ft_isalpha(int c);
-int		ft_isdigit(int c);
+int		ft_isdigit(char c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
@@ -74,6 +74,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 /* ---------------	NUMBERS		--------------- */
-int		ft_atoi(const char *str);
+long		ft_atoi(char *str);
 char	*ft_itoa(int n);
 #endif

@@ -6,7 +6,7 @@
 #    By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 12:58:21 by mamonzer          #+#    #+#              #
-#    Updated: 2025/12/17 13:12:49 by mamonzer         ###   ########.fr        #
+#    Updated: 2025/12/23 14:47:08 by mamonzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 INCLUDES = -I$(LIBFT_DIR)
 
-LIBS = -L(LIBFT_DIR) -lft
+LIBS = -L$(LIBFT_DIR) -lft
 
-SRCS = helper_function.c \
-		push_swap.c \
+SRCS = input_check_utils.c \
+		 input_check.c \
 		main.c
 
 OBJS = $(SRCS:.c=.o)
@@ -43,7 +43,7 @@ $(NAME): $(OBJS) $(LIBFT)
 		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-		@make fclean -C $(LIBFT_DIR)
+		@make clean -C $(LIBFT_DIR)
 		rm -f $(OBJS)
 
 fclean: clean
