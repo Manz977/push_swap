@@ -6,7 +6,7 @@
 /*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 12:36:23 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/10/24 20:58:47 by mamonzer         ###   ########.fr       */
+/*   Updated: 2025/12/23 14:38:32 by mamonzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_space(int s)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(char *str)
 {
 	int	i;
 	int	j;
