@@ -6,12 +6,19 @@
 /*   By: manarmonzer <manarmonzer@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:15:49 by mamonzer          #+#    #+#             */
-/*   Updated: 2026/01/01 18:15:53 by manarmonzer      ###   ########.fr       */
+/*   Updated: 2026/01/01 20:07:32 by manarmonzer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void free_args(char **args)
+{
+    int i = 0;
+    while (args[i])
+        free(args[i++]);
+    free(args);
+}
 int	is_sorted(t_stack *stack)
 {
 	if(!stack)
@@ -54,27 +61,31 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int size)
 	else
 		large_sort(stack_a, stack_b, size);
 }
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*a = NULL;
+	t_stack	*b = NULL;
+	char	**args;
 	int		*num;
 	int		size;
 
 	if (argc < 2)
 		return (0);
-	if (!is_correct_input(argv))
+	args = (argc == 2) ? split(argv[1], ' ') : (argv + 1);
+	if (!args || !is_correct_input(args))
+	{
+		if (argc == 2)
+			free_args(args);
 		return (ft_error(1));
-	num = proc_val(parse_arguments(argc, argv), &size);
-	stack_a = NULL;
-	stack_b = NULL;
-	init_stack(&stack_a, num, size);
+	}
+	num = proc_val(args, &size);
+	init_stack(&a, num, size);
 	free(num);
-	assign_index(&stack_a, size);
-	
-	push_swap(&stack_a, &stack_b, size);
-
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	assign_index(&a, size);
+	push_swap(&a, &b, size);
+	if (argc == 2)
+		free_args(args);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

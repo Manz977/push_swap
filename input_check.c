@@ -6,7 +6,7 @@
 /*   By: manarmonzer <manarmonzer@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 18:32:33 by mamonzer          #+#    #+#             */
-/*   Updated: 2026/01/01 18:44:50 by manarmonzer      ###   ########.fr       */
+/*   Updated: 2026/01/01 20:40:33 by manarmonzer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,24 @@ int	arg_is_number(char *argv)
 	return (1);
 }
 
-int	arg_is_duplicate(char **argv)
+int arg_is_duplicate(char **av)
 {
-	int	i;
-	int	j;
+    int i;
+    int j;
 
-	i = 1;
-
-	while (argv[i])
-	{
-		j = i + 1;
-		while (argv[j])
-		{
-			if (nbr_cmp(argv[i], argv[j]) == 0)
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
+    i = 0;
+    while (av[i])
+    {
+        j = i + 1;
+        while (av[j])
+        {
+            if (ft_atol(av[i]) == ft_atol(av[j]))
+                return (1);
+            j++;
+        }
+        i++;
+    }
+    return (0);
 }
 
 int	arg_is_zero(char *av)
@@ -66,23 +65,28 @@ int	arg_is_zero(char *av)
 	return (0);
 }
 
-int	is_correct_input(char **av)
+int is_correct_input(char **av)
 {
-	int	i;
-	int	numbers_zeros;
+	int		i;
+	long	tmp;  
+	int		zeros;
 
-
-	i = 1;
-	numbers_zeros = 0;
+	i = 0;
+	zeros = 0;
 	while (av[i])
 	{
 		if (!arg_is_number(av[i]))
 			return (0);
-			
-		numbers_zeros += arg_is_zero(av[i]);
+		
+		tmp = ft_atol(av[i]);
+		if (tmp > 2147483647 || tmp < -2147483648)
+			return (0);
+
+		if (arg_is_zero(av[i]))
+			zeros++;
 		i++;
 	}
-	if (numbers_zeros > 1)
+	if (zeros > 1)
 		return (0);
 	if (arg_is_duplicate(av))
 		return (0);

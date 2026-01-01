@@ -6,7 +6,7 @@
 /*   By: manarmonzer <manarmonzer@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:12:55 by mamonzer          #+#    #+#             */
-/*   Updated: 2026/01/01 18:55:43 by manarmonzer      ###   ########.fr       */
+/*   Updated: 2026/01/01 20:41:01 by manarmonzer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 /*===Error handling and input check utils===*/
 int		ft_error(int e);
 int		is_sign(char c);
-long	ft_atoi(char *str);
+long	ft_atol(const char *str);
 int		nbr_cmp(const char *s1, const char *s2);
 int		arg_is_number(char *argv);
 int		arg_is_duplicate(char **argv);

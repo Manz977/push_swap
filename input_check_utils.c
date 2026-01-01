@@ -6,7 +6,7 @@
 /*   By: manarmonzer <manarmonzer@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:10:47 by mamonzer          #+#    #+#             */
-/*   Updated: 2026/01/01 18:30:04 by manarmonzer      ###   ########.fr       */
+/*   Updated: 2026/01/01 20:40:09 by manarmonzer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,31 @@ int	ft_error(int e)
 	exit (1);
 }
 
-long	ft_atoi(char *str)
+/* This uses 'long' to hold the number so we can check if it's too big for 'int' */
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	j;
-	int	np;
+	long	result;
+	int		sign;
+	int		i;
 
+	result = 0;
+	sign = 1;
 	i = 0;
-	j = 0;
-	np = 1;
-	while (ft_space(str[i]))
+    // Skip whitespace if your parser doesn't handle it yet
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			np = -1;
+			sign = -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		j = j * 10 + (str[i] - '0');
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (j * np);
+	return (result * sign);
 }
 /*nbrstr compare if the numbers are duplicate*/
 

@@ -28,7 +28,7 @@ int	*proc_val(char **args, int *size)
 	i = 0;
 	while (args[i])
 	{
-		num[i] = ft_atoi(args[i]);
+		num[i] = ft_atol(args[i]);
 		i++;
 	}
 	return (num);
