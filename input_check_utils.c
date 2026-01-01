@@ -3,28 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   input_check_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamonzer <mamonzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manarmonzer <manarmonzer@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:10:47 by mamonzer          #+#    #+#             */
-/*   Updated: 2025/12/23 13:46:43 by mamonzer         ###   ########.fr       */
+/*   Updated: 2026/01/01 18:30:04 by manarmonzer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
 
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
 int	ft_error(int e)
 {
 	if (e == 1)
 		write(2, "Error\n", 6);
 	exit (1);
-}
-
-int	ft_space(int s)
-{
-	if (s == 9 || s == 10 || s == 11 || s == 12 || s == 13 || s == 32)
-		return (1);
-	return (0);
 }
 
 long	ft_atoi(char *str)

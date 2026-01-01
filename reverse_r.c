@@ -1,15 +1,6 @@
 #include "push_swap.h"
 
-t_stack *get_last_stack(t_stack *stack)
-{
-    if (!stack)
-        return (NULL);
-    while (stack->next)
-        stack = stack->next;
-    return (stack);
-}
-
-static void reverse_r(t_stack **stack)
+void reverse_r(t_stack **stack)
 {
     t_stack *last;
     t_stack *second_to_last;
